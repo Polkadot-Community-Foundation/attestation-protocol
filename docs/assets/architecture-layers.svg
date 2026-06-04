@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif">
+  <defs>
+    <filter id="elev" x="-20%" y="-20%" width="140%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3.5"/>
+      <feOffset dx="0" dy="3" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.28"/></feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <linearGradient id="gTile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5f5f7"/>
+      <stop offset="1" stop-color="#e8e8eb"/>
+    </linearGradient>
+
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="0.06" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <path id="layerTop" d="
+      M 24,10
+      L 576,10
+      Q 590,10 586,23
+      L 524,116
+      Q 520,122 512,122
+      L 88,122
+      Q 80,122 76,116
+      L 14,23
+      Q 10,10 24,10 Z"/>
+    <path id="layerMid" d="
+      M 92,134
+      L 508,134
+      Q 516,134 512,141
+      L 454,234
+      Q 450,240 442,240
+      L 158,240
+      Q 150,240 146,234
+      L 88,141
+      Q 84,134 92,134 Z"/>
+    <path id="layerBot" d="
+      M 162,252
+      L 438,252
+      Q 446,252 442,259
+      L 384,352
+      Q 380,358 372,358
+      L 228,358
+      Q 220,358 216,352
+      L 158,259
+      Q 154,252 162,252 Z"/>
+  </defs>
+
+  <ellipse cx="300" cy="368" rx="170" ry="6" fill="#000000" opacity="0.10"/>
+
+  <!-- BOTTOM LAYER (Polkadot) -->
+  <g filter="url(#elev)">
+    <use href="#layerBot" fill="url(#gTile)"/>
+    <use href="#layerBot" fill="none" stroke="#3a3a40" stroke-opacity="0.40" stroke-width="1"/>
+    <use href="#layerBot" fill="url(#rim)"/>
+  </g>
+  <text x="300" y="294" text-anchor="middle" font-size="17" font-weight="600" letter-spacing="0.2" fill="#1d1d1f">Polkadot</text>
+  <text x="300" y="318" text-anchor="middle" font-size="12.5" fill="#1d1d1f" fill-opacity="0.72">Asset Hub  ·  pallet-revive</text>
+
+  <!-- MIDDLE LAYER (Attestation Protocol) -->
+  <g filter="url(#elev)">
+    <use href="#layerMid" fill="url(#gTile)"/>
+    <use href="#layerMid" fill="none" stroke="#3a3a40" stroke-opacity="0.40" stroke-width="1"/>
+    <use href="#layerMid" fill="url(#rim)"/>
+  </g>
+  <text x="300" y="176" text-anchor="middle" font-size="17" font-weight="600" letter-spacing="0.2" fill="#1d1d1f">Attestation Protocol</text>
+  <text x="300" y="200" text-anchor="middle" font-size="12.5" fill="#1d1d1f" fill-opacity="0.72">SchemaRegistry  ·  AttestationService</text>
+
+  <!-- TOP LAYER (Apps) -->
+  <g filter="url(#elev)">
+    <use href="#layerTop" fill="url(#gTile)"/>
+    <use href="#layerTop" fill="none" stroke="#3a3a40" stroke-opacity="0.40" stroke-width="1"/>
+    <use href="#layerTop" fill="url(#rim)"/>
+  </g>
+  <text x="300" y="55" text-anchor="middle" font-size="17" font-weight="600" letter-spacing="0.2" fill="#1d1d1f">Apps</text>
+  <text x="300" y="79" text-anchor="middle" font-size="12.5" fill="#1d1d1f" fill-opacity="0.72">Browse  ·  zkBeertap  ·  W3S Playground</text>
+</svg>

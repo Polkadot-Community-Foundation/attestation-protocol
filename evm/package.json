@@ -1,0 +1,21 @@
+{
+  "name": "@attestation-protocol/evm",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "bun scripts/deploy.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@polkadot-api/substrate-bindings": "^0.17.0",
+    "@polkadot-labs/hdkd": "^0.0.25",
+    "@polkadot-labs/hdkd-helpers": "^0.0.26",
+    "polkadot-api": "^1.23.1",
+    "viem": "^2.43.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.12.0",
+    "typescript": "^5.7.3"
+  }
+}

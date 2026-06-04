@@ -1,0 +1,22 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Build outputs
+out/
+cache/
+dist/
+build/
+
+# Foundry / vendored libs
+evm/lib/
+
+# OS
+.DS_Store
+
+# AI session state
+.claude/

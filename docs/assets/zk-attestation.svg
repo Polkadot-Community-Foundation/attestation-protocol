@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif">
+  <defs>
+    <filter id="elev" x="-30%" y="-40%" width="160%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2.5" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="gTile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5f5f7"/><stop offset="1" stop-color="#e8e8eb"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/><stop offset="0.18" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888888"/></marker>
+    <marker id="arrow-return" markerWidth="8" markerHeight="8" refX="6.5" refY="2.6" orient="auto"><path d="M0,0 L0,5.2 L6.5,2.6 z" fill="#a8a8a8"/></marker>
+  </defs>
+
+  <ellipse cx="300" cy="370" rx="220" ry="5" fill="#000000" opacity="0.08"/>
+
+  <!-- Participants -->
+  <g filter="url(#elev)"><rect x="20" y="14" width="130" height="44" rx="10" fill="url(#gTile)"/><rect x="20" y="14" width="130" height="44" rx="10" fill="none" stroke="#3a3a40" stroke-opacity="0.40" stroke-width="1"/><rect x="20" y="14" width="130" height="44" rx="10" fill="url(#rim)"/></g>
+  <text x="85" y="41" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="0.2" fill="#1d1d1f">User Attester</text>
+
+  <g filter="url(#elev)"><rect x="225" y="14" width="150" height="44" rx="10" fill="url(#gTile)"/><rect x="225" y="14" width="150" height="44" rx="10" fill="none" stroke="#3a3a40" stroke-opacity="0.40" stroke-width="1"/><rect x="225" y="14" width="150" height="44" rx="10" fill="url(#rim)"/></g>
+  <text x="300" y="34" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="0.2" fill="#1d1d1f">Attestation</text>
+  <text x="300" y="50" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="0.2" fill="#1d1d1f">Protocol</text>
+
+  <g filter="url(#elev)"><rect x="450" y="14" width="130" height="44" rx="10" fill="url(#gTile)"/><rect x="450" y="14" width="130" height="44" rx="10" fill="none" stroke="#3a3a40" stroke-opacity="0.40" stroke-width="1"/><rect x="450" y="14" width="130" height="44" rx="10" fill="url(#rim)"/></g>
+  <text x="515" y="41" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="0.2" fill="#1d1d1f">User Verifier</text>
+
+  <!-- Lifelines -->
+  <line x1="85"  y1="58" x2="85"  y2="362" stroke="#bdbdc4" stroke-width="1"/>
+  <line x1="300" y1="58" x2="300" y2="362" stroke="#bdbdc4" stroke-width="1"/>
+  <line x1="515" y1="58" x2="515" y2="362" stroke="#bdbdc4" stroke-width="1"/>
+
+  <!-- 1. attest -->
+  <line x1="85" y1="90" x2="293" y2="90" stroke="#888888" stroke-width="1.25" marker-end="url(#arrow)"/>
+  <text x="190" y="85" text-anchor="middle" font-size="11.5" fill="#777777">attest(schema, recipient, data)</text>
+  <line x1="300" y1="113" x2="92" y2="113" stroke="#a8a8a8" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-return)"/>
+  <text x="190" y="108" text-anchor="middle" font-size="11.5" fill="#999999">attestation ID</text>
+
+  <!-- 2. generate ZK proof (self-loop) -->
+  <path d="M85,168 Q40,168 40,183 Q40,198 85,198" fill="none" stroke="#888888" stroke-width="1.25" marker-end="url(#arrow)"/>
+  <text x="50" y="181" text-anchor="middle" font-size="10.5" fill="#777777">generate</text>
+  <text x="50" y="193" text-anchor="middle" font-size="10.5" fill="#777777">ZK proof</text>
+
+  <!-- 3. proof π -->
+  <line x1="85" y1="222" x2="508" y2="222" stroke="#888888" stroke-width="1.25" marker-end="url(#arrow)"/>
+  <text x="300" y="217" text-anchor="middle" font-size="11.5" fill="#777777">proof &#960;  (no raw data exposed)</text>
+
+  <!-- 4. isActive(id) -->
+  <line x1="515" y1="258" x2="307" y2="258" stroke="#888888" stroke-width="1.25" marker-end="url(#arrow)"/>
+  <text x="413" y="253" text-anchor="middle" font-size="11.5" fill="#777777">isActive(id)</text>
+  <line x1="300" y1="281" x2="508" y2="281" stroke="#a8a8a8" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-return)"/>
+  <text x="413" y="276" text-anchor="middle" font-size="11.5" fill="#999999">true</text>
+
+  <!-- 5. verify proof (self-loop) -->
+  <path d="M515,305 Q560,305 560,320 Q560,335 515,335" fill="none" stroke="#888888" stroke-width="1.25" marker-end="url(#arrow)"/>
+  <text x="550" y="318" text-anchor="middle" font-size="10.5" fill="#777777">verify</text>
+  <text x="550" y="330" text-anchor="middle" font-size="10.5" fill="#777777">proof &#960;</text>
+
+  <!-- Result -->
+  <text x="515" y="365" text-anchor="middle" font-size="12" font-weight="600" letter-spacing="0.2" fill="#777777">&#10003;  access granted</text>
+</svg>

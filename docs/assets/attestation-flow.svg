@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 460" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif">
+  <defs>
+    <filter id="elev" x="-30%" y="-40%" width="160%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2.5" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="gTile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5f5f7"/><stop offset="1" stop-color="#e8e8eb"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/><stop offset="0.18" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888888"/></marker>
+    <marker id="arrow-return" markerWidth="8" markerHeight="8" refX="6.5" refY="2.6" orient="auto"><path d="M0,0 L0,5.2 L6.5,2.6 z" fill="#a8a8a8"/></marker>
+  </defs>
+
+  <ellipse cx="250" cy="448" rx="180" ry="5" fill="#000000" opacity="0.08"/>
+
+  <!-- Participants -->
+  <g filter="url(#elev)"><rect x="30" y="14" width="100" height="44" rx="10" fill="url(#gTile)"/><rect x="30" y="14" width="100" height="44" rx="10" fill="none" stroke="#3a3a40" stroke-opacity="0.40" stroke-width="1"/><rect x="30" y="14" width="100" height="44" rx="10" fill="url(#rim)"/></g>
+  <text x="80" y="41" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="0.2" fill="#1d1d1f">User</text>
+
+  <g filter="url(#elev)"><rect x="300" y="14" width="150" height="44" rx="10" fill="url(#gTile)"/><rect x="300" y="14" width="150" height="44" rx="10" fill="none" stroke="#3a3a40" stroke-opacity="0.40" stroke-width="1"/><rect x="300" y="14" width="150" height="44" rx="10" fill="url(#rim)"/></g>
+  <text x="375" y="34" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="0.2" fill="#1d1d1f">Attestation</text>
+  <text x="375" y="50" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="0.2" fill="#1d1d1f">Protocol</text>
+
+  <!-- Lifelines -->
+  <line x1="80"  y1="58" x2="80"  y2="442" stroke="#bdbdc4" stroke-width="1"/>
+  <line x1="375" y1="58" x2="375" y2="442" stroke="#bdbdc4" stroke-width="1"/>
+
+  <!-- 1. register -->
+  <line x1="80" y1="96" x2="368" y2="96" stroke="#888888" stroke-width="1.25" marker-end="url(#arrow)"/>
+  <text x="225" y="91" text-anchor="middle" font-size="11.5" fill="#777777">register(schema, revocable)</text>
+  <line x1="375" y1="118" x2="87" y2="118" stroke="#a8a8a8" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-return)"/>
+  <text x="225" y="113" text-anchor="middle" font-size="11.5" fill="#999999">schema ID</text>
+
+  <!-- 2. attest -->
+  <line x1="80" y1="162" x2="368" y2="162" stroke="#888888" stroke-width="1.25" marker-end="url(#arrow)"/>
+  <text x="225" y="157" text-anchor="middle" font-size="11.5" fill="#777777">attest(schemaId, recipient, data)</text>
+  <line x1="375" y1="184" x2="87" y2="184" stroke="#a8a8a8" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-return)"/>
+  <text x="225" y="179" text-anchor="middle" font-size="11.5" fill="#999999">attestation ID</text>
+
+  <!-- 3. isActive -->
+  <line x1="80" y1="228" x2="368" y2="228" stroke="#888888" stroke-width="1.25" marker-end="url(#arrow)"/>
+  <text x="225" y="223" text-anchor="middle" font-size="11.5" fill="#777777">isActive(id)</text>
+  <line x1="375" y1="250" x2="87" y2="250" stroke="#a8a8a8" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-return)"/>
+  <text x="225" y="245" text-anchor="middle" font-size="11.5" fill="#999999">true</text>
+
+  <!-- 4. revoke -->
+  <line x1="80" y1="296" x2="368" y2="296" stroke="#888888" stroke-width="1.25" marker-end="url(#arrow)"/>
+  <text x="225" y="291" text-anchor="middle" font-size="11.5" fill="#777777">revoke(schemaId, attestationId)</text>
+
+  <!-- 5. isActive after revoke -->
+  <line x1="80" y1="340" x2="368" y2="340" stroke="#888888" stroke-width="1.25" marker-end="url(#arrow)"/>
+  <text x="225" y="335" text-anchor="middle" font-size="11.5" fill="#777777">isActive(id)</text>
+  <line x1="375" y1="362" x2="87" y2="362" stroke="#a8a8a8" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-return)"/>
+  <text x="225" y="357" text-anchor="middle" font-size="11.5" fill="#999999">false</text>
+
+  <!-- 6. listByRecipientAndSchema -->
+  <line x1="80" y1="406" x2="368" y2="406" stroke="#888888" stroke-width="1.25" marker-end="url(#arrow)"/>
+  <text x="225" y="401" text-anchor="middle" font-size="11.5" fill="#777777">listByRecipientAndSchema(recipient, schema)</text>
+  <line x1="375" y1="428" x2="87" y2="428" stroke="#a8a8a8" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-return)"/>
+  <text x="225" y="423" text-anchor="middle" font-size="11.5" fill="#999999">active IDs</text>
+</svg>
