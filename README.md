@@ -4,29 +4,29 @@ A permissionless protocol for creating, revoking, and verifying attestations. Us
 
 ## Deploy
 
-Using npm
+The deploy builds the contracts and publishes `SchemaRegistry` + `AttestationService` to a
+PolkaVM / `pallet-revive` Asset Hub by submitting native `Revive.instantiate_with_code`
+extrinsics (no `eth-rpc` adapter, no Docker; stock Foundry compiles the contracts).
+
+**Prerequisites — both required** (the deploy reads them from the environment / `evm/.env`,
+copied from [`evm/.env.example`](evm/.env.example)):
+
+- `MNEMONIC` — a **funded** signing account on the target network (its SS58 account pays the
+  fees and storage deposits). The example default is the public dev phrase — **replace it.**
+- `GENESIS_HASH` — selects the target network from [`evm/scripts/network.ts`](evm/scripts/network.ts).
+  The example defaults to **Summit**
+  (`0xf388dc6d6cdf6fb77eac3c4a91f31bc0c8642b142f1a757512ab7849f9f70660`); change it for other
+  networks.
+
+This repo pins **bun** (`packageManager`), so use bun:
 
 ```bash
-$ npm run deploy
-```
-
-Using yarn
-
-```bash
-$ yarn run deploy
-```
-
-Using pnpm
-
-```bash
-$ pnpm run deploy
-```
-
-Using bun
-
-```bash
+$ bun install
 $ bun run deploy
 ```
+
+See [`docs/SUMMIT_DEPLOYMENT.md`](docs/SUMMIT_DEPLOYMENT.md) for the full Summit procedure
+(funding model, network selection, `RPC_URL` rehearsal override, and verification).
 
 ## Deployments
 
