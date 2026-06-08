@@ -88,7 +88,12 @@ export function connect() {
     )
     process.exit(1)
   }
-  const client = createClient(getWsProvider(config.rpcEndpoints))
+  // RPC_URL overrides the registry endpoint without mutating network.ts — e.g.
+  // to point a deploy at a local Chopsticks fork (ws://localhost:8000) for a
+  // rehearsal. GENESIS_HASH still selects the network config; only the endpoint
+  // is swapped.
+  const endpoints = process.env.RPC_URL ? [process.env.RPC_URL] : config.rpcEndpoints
+  const client = createClient(getWsProvider(endpoints))
   return { client, api: client.getUnsafeApi(), network: config, genesisHash }
 }
 

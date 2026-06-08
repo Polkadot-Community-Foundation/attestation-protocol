@@ -128,7 +128,7 @@ async function main() {
   );
   console.log();
   console.log(`  ${chalk.dim("Network ")} ${chalk.bold(network.name)}`);
-  console.log(`  ${chalk.dim("RPC     ")} ${network.rpcEndpoints[0]}`);
+  console.log(`  ${chalk.dim("RPC     ")} ${process.env.RPC_URL ?? network.rpcEndpoints[0]}`);
   console.log(`  ${chalk.dim("Deployer")} ${address}`);
   console.log();
 
