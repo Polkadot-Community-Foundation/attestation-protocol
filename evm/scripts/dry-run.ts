@@ -14,7 +14,7 @@ import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import chalk from "chalk";
-import { Binary, FixedSizeBinary } from "polkadot-api";
+import { Binary } from "polkadot-api";
 import { encodeAbiParameters, parseAbiParameters } from "viem";
 
 import { connect, getSigner } from "./lib.ts";
@@ -63,13 +63,14 @@ async function dryOne(api: any, origin: any, name: string, codeHex: string) {
 
 async function main() {
   const { client, api, network } = connect();
-  const { publicKey } = getSigner();
-  // Origin: ORIGIN_SS58 if given, else the configured signer's AccountId32.
-  const origin = process.env.ORIGIN_SS58 ?? FixedSizeBinary.fromBytes(publicKey);
+  const { address } = getSigner();
+  // Origin: ORIGIN_SS58 if given, else the configured signer's account. papi's
+  // AccountId codec expects an SS58 string (not raw bytes), so use `address`.
+  const origin = process.env.ORIGIN_SS58 ?? address;
 
   console.log();
   console.log(`  ${chalk.bold.cyan("Attestation Protocol")} ${chalk.dim("· dry-run")} ${chalk.dim("(no funds moved)")}`);
-  console.log(`  ${chalk.dim("Network ")} ${network.name}   ${chalk.dim("Origin ")} ${process.env.ORIGIN_SS58 ?? "MNEMONIC account"}`);
+  console.log(`  ${chalk.dim("Network ")} ${network.name}   ${chalk.dim("Origin  ")} ${origin}`);
   console.log();
 
   try {
