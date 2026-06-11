@@ -66,8 +66,8 @@ already registered:
    ```bash
    bun run deploy
    ```
-   Success prints the two addresses and writes `evm/deployments/summit/`.
-6. **Record:** commit `evm/deployments/summit/*.json`; add the two addresses to the Summit
+   Success prints the two addresses and writes repo-root `deployments/summit/`.
+6. **Record:** commit `deployments/summit/`; add the two addresses to the Summit
    deployments register; paste them into `browse`'s SDK config (`SCHEMA_REGISTRY`,
    `ATTESTATION_SERVICE`) so the `browse` deploy can proceed.
 
